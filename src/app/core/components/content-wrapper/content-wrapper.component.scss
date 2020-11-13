@@ -18,7 +18,7 @@
 
 .header-trigger {
   height: 64px;
-  padding: 20px 24px;
+  padding: 0 24px;
   font-size: 20px;
   cursor: pointer;
   transition: all 0.3s, padding 0s;
@@ -67,6 +67,10 @@ nz-header {
   padding: 0;
   background: #fff;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 nz-content {
@@ -77,4 +81,86 @@ nz-content {
   padding: 24px;
   background: #fff;
   height: 100%;
+}
+
+.header_search {
+  margin-left: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header_avatar {
+  width: 100px;
+  text-align: center;
+}
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+@media (min-width: 1281px) {
+  .text-change {
+    display: inline;
+    padding: 0 10px;
+  }
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .text-change {
+    display: inline;
+    padding: 0 10px;
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .text-change {
+    display: none;
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .text-change {
+    display: none;
+  }
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .text-change {
+    display: none;
+  }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .text-change {
+    display: none;
+  }
+  .header_search {
+    display: none;
+  }
 }

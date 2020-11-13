@@ -8,13 +8,13 @@ import { AuthGuard } from './core/guards/auth.guard';
 const routes: Routes = [
   {
     path: '',
-    canActivate: [AuthGuard],
+    //canActivate: [AuthGuard],
     pathMatch: 'full',
     redirectTo: PAGE_URL.LOGIN,
   },
   {
     path: 'welcome',
-    canActivate: [AuthGuard],
+    //canActivate: [AuthGuard],
     loadChildren: () =>
       import('./pages/welcome/welcome.module').then((m) => m.WelcomeModule),
   },

@@ -62,7 +62,8 @@ export class LoginComponent implements OnInit {
       this.isLoading = false;
       return;
     }
-
+    this.router.navigate(['/welcome']);
+    /*
     this.httpService
       .post(SERVICE_API.LOGIN, {
         username: this.userName.value,
@@ -70,6 +71,7 @@ export class LoginComponent implements OnInit {
       })
       .subscribe(
         (response: any) => {
+          console.log(response);
           if (response.Status == 1) {
             this.error = response.Msg;
             this.isLoading = false;
@@ -81,8 +83,10 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/dashboard']);
         },
         (error) => {
+          console.log(error);
           this.isLoading = false;
         }
       );
+      */
   }
 }

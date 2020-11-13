@@ -13,6 +13,9 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzAlertModule } from 'ng-zorro-antd/alert';
 import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzSwitchModule } from 'ng-zorro-antd/switch';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzDrawerModule } from 'ng-zorro-antd/drawer';
 
 @NgModule({
   declarations: [],
@@ -30,6 +33,9 @@ import { NzFormModule } from 'ng-zorro-antd/form';
     NzMessageModule,
     NzAlertModule,
     NzFormModule,
+    NzSwitchModule,
+    NzInputModule,
+    NzDrawerModule,
   ],
 })
 export class NgZorroAntdModule {}

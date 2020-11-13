@@ -2,32 +2,30 @@
   <nz-sider class="menu-sidebar" nzCollapsible nzWidth="256px" nzBreakpoint="md" [(nzCollapsed)]="isCollapsed"
     [nzTrigger]="null">
     <div class="sidebar-logo">
-      <a href="https://ng.ant.design/" target="_blank">
-        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
-        <h1>Ant Design Of Angular</h1>
+      <a target="_blank">
+        <img src="../../../../assets/svg/logo.svg" alt="logo">
+        <h1>Quản lý bán hàng</h1>
       </a>
     </div>
-    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/welcome">Welcome</a>
+    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed" [nzTheme]="theme ? 'dark' : 'light'"
+      [nzMode]="mode ? 'vertical' : 'inline'">
+      <ng-container *ngTemplateOutlet="menuTpl; context: { $implicit: menus }"></ng-container>
+      <ng-template #menuTpl let-menus>
+        <ng-container *ngFor="let menu of menus">
+          <li *ngIf="!menu.children" nz-menu-item [nzPaddingLeft]="menu.level * 24" [nzDisabled]="menu.disabled"
+            [nzSelected]="menu.selected" [routerLink]="menu.link" [title]="menu.title">
+            <i nz-icon [nzType]="menu.icon" *ngIf="menu.icon"></i>
+            <span>{{ menu.title }}</span>
           </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Monitor</a>
+          <li *ngIf="menu.children" nz-submenu [nzPaddingLeft]="menu.level * 24" [nzOpen]="menu.open"
+            [nzTitle]="menu.title" [nzIcon]="menu.icon" [nzDisabled]="menu.disabled" [routerLink]="menu.link"
+            [title]="menu.title">
+            <ul>
+              <ng-container *ngTemplateOutlet="menuTpl; context: { $implicit: menu.children }"></ng-container>
+            </ul>
           </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Workplace</a>
-          </li>
-        </ul>
-      </li>
-      <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a>Basic Form</a>
-          </li>
-        </ul>
-      </li>
+        </ng-container>
+      </ng-template>
     </ul>
   </nz-sider>
   <nz-layout>
@@ -36,6 +34,30 @@
         <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
           <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
         </span>
+        <span class="header-theme">
+          <span class="text-change">Change Theme</span>
+          <nz-switch [(ngModel)]="theme" title="Thay đổi giao diện">
+            <span checked>Dark</span>
+            <span unchecked>Light</span>
+          </nz-switch>
+        </span>
+        <span class="header-mode">
+          <span class="text-change">Change Mode</span>
+          <nz-switch [(ngModel)]="mode" title="Thay đổi Mode"></nz-switch>
+        </span>
+        <div class="header_search">
+          <nz-input-group nzSearch nzSize="large" [nzAddOnAfter]="suffixButton">
+            <input type="text" nz-input placeholder="input search text" />
+          </nz-input-group>
+          <ng-template #suffixButton>
+            <button nz-button nzType="primary" nzSize="large" nzSearch><i nz-icon nzType="search"></i></button>
+          </ng-template>
+        </div>
+        <div class="header_avatar">
+          <nz-avatar nzIcon="user" nz-tooltip nzTooltipTitle="Administrator" nzSrc="../../../../assets/svg/man.svg"
+            (click)="openDrawerRight()">
+          </nz-avatar>
+        </div>
       </div>
     </nz-header>
     <nz-content>
@@ -44,4 +66,10 @@
       </div>
     </nz-content>
   </nz-layout>
+  <nz-drawer [nzClosable]="false" [nzVisible]="visible" nzPlacement="right" nzTitle="Thông tin người dùng"
+    (nzOnClose)="closeDrawerRight()">
+    <p>Some contents...</p>
+    <p>Some contents...</p>
+    <p>Some contents...</p>
+  </nz-drawer>
 </nz-layout>

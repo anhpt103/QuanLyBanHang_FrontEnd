@@ -1,36 +1,39 @@
-<nz-layout>
-    <nz-content>
-        <div nz-row>
-            <div nz-col nzSpan="24">
-                <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
-                    <nz-form-item>
-                        <nz-form-control nzErrorTip="Please input your username!">
-                            <nz-input-group nzPrefixIcon="user">
-                                <input type="text" nz-input formControlName="userName" placeholder="Username" />
-                            </nz-input-group>
-                        </nz-form-control>
-                    </nz-form-item>
-                    <nz-form-item>
-                        <nz-form-control nzErrorTip="Please input your Password!">
-                            <nz-input-group nzPrefixIcon="lock">
-                                <input type="password" nz-input formControlName="password" placeholder="Password" />
-                            </nz-input-group>
-                        </nz-form-control>
-                    </nz-form-item>
-                    <div nz-row class="login-form-margin">
-                        <div nz-col [nzSpan]="12">
-                            <label nz-checkbox formControlName="remember">
-                                <span>Remember me</span>
-                            </label>
-                        </div>
-                        <div nz-col [nzSpan]="12">
-                            <a class="login-form-forgot">Forgot password</a>
-                        </div>
+<div class="limiter">
+    <div class="container-login">
+        <div class="wrap-login">
+            <div class="login-form-title"></div>
+            <form class="login-form validate-form" nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+                <div class="wrap-input validate-input m-b-26" data-validate="Username is required">
+                    <span class="label-input">Username</span>
+                    <input class="input-login" type="text" nz-input formControlName="userName"
+                        placeholder="Enter username" />
+                    <span class="focus-input"></span>
+                </div>
+                <div class="wrap-input validate-input m-b-18" data-validate="Password is required">
+                    <span class="label-input">Password</span>
+                    <input class="input-login" type="password" nz-input formControlName="password"
+                        placeholder="Enter password" />
+                    <span class="focus-input"></span>
+                </div>
+                <div class="flex-sb-m w-full p-30">
+                    <div class="contact-form-checkbox">
+                        <input class="input-checkbox" id="ckbRememberMe" type="checkbox" name="remember-me"
+                            formControlName="remember">
+                        <label class="checkbox-text">
+                            <span>Remember me</span>
+                        </label>
                     </div>
-                    <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Log in</button>
-                    Or <a> register now! </a>
-                </form>
-            </div>
+                    <div>
+                        <a href="#" class="forgot-password">
+                            Forgot Password?
+                        </a>
+                    </div>
+                </div>
+                <div class="container-login-form-btn">
+                    <button class="login-form-btn" nz-button nzType="primary" nzShape="round" [nzLoading]="isLoading"><i
+                            nz-icon nzType="login" nzTheme="outline"></i>Đăng nhập</button>
+                </div>
+            </form>
         </div>
-    </nz-content>
-</nz-layout>
+    </div>
+</div>
