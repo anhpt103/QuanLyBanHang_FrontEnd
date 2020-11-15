@@ -12,7 +12,7 @@
       <ng-container *ngTemplateOutlet="menuTpl; context: { $implicit: menus }"></ng-container>
       <ng-template #menuTpl let-menus>
         <ng-container *ngFor="let menu of menus">
-          <li *ngIf="!menu.children" nz-menu-item [nzPaddingLeft]="menu.level * 24" [nzDisabled]="menu.disabled"
+          <li *ngIf="!menu.children" nz-menu-item nzMatchRouter [nzPaddingLeft]="menu.level * 24" [nzDisabled]="menu.disabled"
             [nzSelected]="menu.selected" [routerLink]="menu.link" [title]="menu.title">
             <i nz-icon [nzType]="menu.icon" *ngIf="menu.icon"></i>
             <span>{{ menu.title }}</span>

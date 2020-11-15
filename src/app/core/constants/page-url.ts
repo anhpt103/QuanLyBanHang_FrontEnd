@@ -1,7 +1,12 @@
 export const PAGE_URL = {
+  ROOT: '',
+  ALL: '**',
+  HTTP_ERROR_500: '500',
   LOGIN: 'login',
-  HOME: '',
+  HOME: 'home',
   DASHBOARD: 'dashboard',
-  CATEGORIES: 'dm',
-  CATEGORY_PRODUCT: 'sp',
+  CATEGORY: 'category',
+  CATEGORY_PRODUCT: 'product',
+  CATEGORY_ROOM: 'room',
+  CATEGORY_SUPPLIER: 'supplier',
 };

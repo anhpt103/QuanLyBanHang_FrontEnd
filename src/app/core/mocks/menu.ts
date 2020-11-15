@@ -1,12 +1,12 @@
 export const MENU_OBJ: any[] = [
   {
     level: 1,
-    title: 'Trang chủ',
+    title: 'Biểu đồ',
     icon: 'dashboard',
     open: false,
-    selected: true,
+    selected: false,
     disabled: false,
-    link: '/welcome',
+    link: '/dashboard',
   },
   {
     level: 1,
@@ -15,7 +15,6 @@ export const MENU_OBJ: any[] = [
     open: true,
     selected: false,
     disabled: false,
-    link: '/welcome',
     children: [
       {
         level: 2,
@@ -24,7 +23,7 @@ export const MENU_OBJ: any[] = [
         open: false,
         selected: false,
         disabled: false,
-        link: '../dm',
+        link: '/category/product',
       },
       {
         level: 2,
@@ -32,7 +31,7 @@ export const MENU_OBJ: any[] = [
         icon: 'audio',
         selected: false,
         disabled: false,
-        link: '/welcome',
+        link: '/category/room',
       },
       {
         level: 2,
@@ -40,7 +39,7 @@ export const MENU_OBJ: any[] = [
         icon: 'contacts',
         selected: false,
         disabled: false,
-        link: '/welcome',
+        link: '/category/supplier',
       },
       {
         level: 2,
@@ -75,7 +74,6 @@ export const MENU_OBJ: any[] = [
     open: true,
     selected: false,
     disabled: false,
-    link: '/welcome',
     children: [
       {
         level: 2,
@@ -110,7 +108,6 @@ export const MENU_OBJ: any[] = [
     open: true,
     selected: false,
     disabled: false,
-    link: '/welcome',
     children: [
       {
         level: 2,

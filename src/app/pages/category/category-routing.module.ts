@@ -1,24 +1,23 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PAGE_URL } from 'src/app/core/constants/page-url';
-import { CategoryComponent } from './category.component';
-import { ProductListComponent } from './product/product-list/product-list.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: CategoryComponent,
-    children: [
-      {
-        path: '',
-        component: CategoryComponent,
-      },
-      {
-        path: PAGE_URL.CATEGORY_PRODUCT,
-        component: ProductListComponent,
-      },
-    ],
+    path: PAGE_URL.CATEGORY_PRODUCT,
+    loadChildren: () =>
+      import('./pages/product/product.module').then((m) => m.ProductModule),
   },
+  {
+    path: PAGE_URL.CATEGORY_ROOM,
+    loadChildren: () =>
+      import('./pages/room/room.module').then((m) => m.RoomModule),
+  },
+  {
+    path: PAGE_URL.CATEGORY_SUPPLIER,
+    loadChildren: () =>
+      import('./pages/supplier/supplier.module').then((m) => m.SupplierModule),
+  }
 ];
 
 @NgModule({

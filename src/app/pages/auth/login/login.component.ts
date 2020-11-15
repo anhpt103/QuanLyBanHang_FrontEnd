@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
       this.isLoading = false;
       return;
     }
-    this.router.navigate(['/welcome']);
+    this.router.navigate(['/home']);
     /*
     this.httpService
       .post(SERVICE_API.LOGIN, {

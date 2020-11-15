@@ -16,6 +16,8 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzSwitchModule } from 'ng-zorro-antd/switch';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzDrawerModule } from 'ng-zorro-antd/drawer';
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzCardModule } from 'ng-zorro-antd/card';
 
 @NgModule({
   declarations: [],
@@ -36,6 +38,8 @@ import { NzDrawerModule } from 'ng-zorro-antd/drawer';
     NzSwitchModule,
     NzInputModule,
     NzDrawerModule,
+    NzTableModule,
+    NzCardModule
   ],
 })
 export class NgZorroAntdModule {}
